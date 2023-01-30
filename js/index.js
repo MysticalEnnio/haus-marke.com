@@ -43,15 +43,20 @@ loadWebsite({ name: "", url: "" });
 document.getElementById("enterButton").addEventListener("click", () => {
   console.log("Enter button clicked");
   [].slice.call(websitesContainer.children).forEach(function (ele, index) {
+    console.log(`${
+      ele.innerHTML
+    } ${Math.abs(ele.getBoundingClientRect().top - websitesContainer.getBoundingClientRect().top - 300)}
+    `);
     if (
       Math.abs(
         ele.getBoundingClientRect().top -
-          websitesContainer.getBoundingClientRect().top
+          websitesContainer.getBoundingClientRect().top -
+          300
       ) < 100
     ) {
       document.body.classList.add("fadeOutToLeft");
       setTimeout(() => {
-        window.location.href = ele.nextElementSibling.dataset.url;
+        window.location.href = ele.dataset.url;
       }, 500);
     }
   });

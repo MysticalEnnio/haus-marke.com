@@ -127,6 +127,7 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
+  scroll-behavior: smooth;
 }
 
 @keyframes headerLoad {
@@ -158,6 +159,7 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-weight: 700;
   font-size: 10vmin;
+  margin: 5vh auto;
   /*headerrLoad animation for loading text in; fill mode forwards*/
   animation: headerLoad 3s ease-in-out 0s 1 normal forwards;
 }
@@ -173,14 +175,14 @@ body {
   }
   99% {
     opacity: 1;
-    transform: translateY(4rem);
+    transform: translateY(calc(10vmin + 10vh));
   }
 }
 
 #websitesMenu {
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 10vmin - 10vh);
   position: relative;
-  transform: translateY(4rem);
+  transform: translateY(calc(10vmin + 10vh));
   width: 100vw;
   animation: menuLoad 3s ease-in-out 0s 1 normal forwards;
   display: flex;
@@ -225,13 +227,13 @@ body {
 
 /*select first child of #websites*/
 #websites > h2:first-child {
-  margin: 30vh;
+  margin: 100vh;
   scroll-snap-align: start;
 }
 
 /*select last child of #websites*/
 #websites > h2:last-child {
-  margin: 30vh;
+  margin: 100vh;
   scroll-snap-align: end;
 }
 
@@ -261,8 +263,8 @@ body {
 
 #enterButton {
   position: absolute;
-  height: 4rem;
-  width: 4rem;
+  height: 7.5vmin;
+  width: 7.5vmin;
   color: black;
   right: 10vw;
   cursor: pointer;
