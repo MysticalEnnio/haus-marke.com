@@ -2,6 +2,7 @@ fetch("https://api.haus-marke.com/sites/getSites")
   .then((res) => res.json())
   .then((websites) => {
     const websitesContainer = document.getElementById("websites");
+    let websiteValues = [];
 
     function loadWebsite(websiteOptions) {
       const h2 = document.createElement("h2");
@@ -17,24 +18,21 @@ fetch("https://api.haus-marke.com/sites/getSites")
     loadWebsite({ name: "", url: "" });
 
     document.getElementById("enterButton").addEventListener("click", () => {
-      console.log("Enter button clicked");
+      websiteValues = [];
       [].slice.call(websitesContainer.children).forEach(function (ele, index) {
-        console.log(`${
-          ele.innerHTML
-        } ${Math.abs(ele.getBoundingClientRect().top - websitesContainer.getBoundingClientRect().top - 300)}
-    `);
-        if (
-          Math.abs(
+        websiteValues.push({
+          val: Math.abs(
             ele.getBoundingClientRect().top -
               websitesContainer.getBoundingClientRect().top -
               300
-          ) < 100
-        ) {
-          document.body.classList.add("fadeOutToLeft");
-          setTimeout(() => {
-            window.location.href = ele.dataset.url;
-          }, 500);
-        }
+          ),
+          ele,
+        });
       });
+      websiteValues.sort((a, b) => a.val - b.val);
+      document.body.classList.add("fadeOutToLeft");
+      setTimeout(() => {
+        window.location.href = websiteValues[0].ele.dataset.url;
+      }, 500);
     });
   });
