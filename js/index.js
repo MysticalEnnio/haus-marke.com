@@ -1,38 +1,67 @@
-fetch("https://api.haus-marke.com/sites/getSites")
-  .then((res) => res.json())
-  .then((websites) => {
-    const websitesContainer = document.getElementById("websites");
-    let websiteValues = [];
+fetch('http://213.165.72.44/sites/get')
+    .then((res) => res.json())
+    .then((websites) => {
+        const websitesContainer = document.getElementById('websites');
+        const websiteImageContainer = document.getElementById('websiteImages');
+        let websiteValues = [];
+        let websiteNumber = 1;
 
-    function loadWebsite(websiteOptions) {
-      const h2 = document.createElement("h2");
-      h2.innerText = websiteOptions.name.toUpperCase();
-      h2.dataset.url = websiteOptions.url;
-      websitesContainer.appendChild(h2);
-    }
+        function loadWebsite(websiteOptions) {
+            const h2 = document.createElement('h2');
+            h2.innerText = websiteOptions.name.toUpperCase();
+            h2.dataset.url = websiteOptions.url;
+            h2.dataset.number = websiteNumber;
+            websitesContainer.appendChild(h2);
+        }
 
-    loadWebsite({ name: "", url: "" });
-    websites.forEach((website) => {
-      loadWebsite(website);
-    });
-    loadWebsite({ name: "", url: "" });
+        function loadWebsiteImage(websiteOptions) {
+            console.log(websiteOptions);
+            const img = document.createElement('img');
+            img.src =
+                websiteOptions.imageURL ?? 'https://via.placeholder.com/150';
+            img.alt = websiteOptions.name + ' Image';
+            img.dataset.number = websiteNumber;
+            //make opacity 0
+            img.style.opacity = websiteNumber == 1 ? 0.5 : 0;
+            websiteImageContainer.appendChild(img);
+            websiteNumber++;
+        }
 
-    document.getElementById("enterButton").addEventListener("click", () => {
-      websiteValues = [];
-      [].slice.call(websitesContainer.children).forEach(function (ele, index) {
-        websiteValues.push({
-          val: Math.abs(
-            ele.getBoundingClientRect().top -
-              websitesContainer.getBoundingClientRect().top -
-              300
-          ),
-          ele,
+        loadWebsite({ name: '', url: '' });
+        websites.forEach((website) => {
+            loadWebsite(website);
+            loadWebsiteImage(website);
         });
-      });
-      websiteValues.sort((a, b) => a.val - b.val);
-      document.body.classList.add("fadeOutToLeft");
-      setTimeout(() => {
-        window.location.href = websiteValues[0].ele.dataset.url;
-      }, 500);
+        loadWebsite({ name: '', url: '' });
+        const vmin = Math.min(window.innerWidth, window.innerHeight);
+        console.log(window.innerHeight / 4 + vmin * 0.075);
+        console.log(1665.5 - 1395);
+        websitesContainer.addEventListener('scroll', (e) => {
+            //log scroll position
+            console.log(e.target.scrollTop);
+        });
+        /*setInterval(() => {
+            console.log(websitesContainer.scrollTop);
+        }, 300);*/
+
+        document.getElementById('enterButton').addEventListener('click', () => {
+            websiteValues = [];
+            [].slice
+                .call(websitesContainer.children)
+                .forEach(function (ele, index) {
+                    websiteValues.push({
+                        val: Math.abs(
+                            ele.getBoundingClientRect().top -
+                                websitesContainer.getBoundingClientRect().top -
+                                300
+                        ),
+                        ele,
+                    });
+                });
+            websiteValues.sort((a, b) => a.val - b.val);
+            document.body.classList.add('fadeOutToLeft');
+            setTimeout(() => {
+                window.location.href = websiteValues[0].ele.dataset.url;
+            }, 500);
+        });
     });
-  });

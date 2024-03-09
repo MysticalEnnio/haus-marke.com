@@ -79,12 +79,12 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 article,
 aside,
@@ -97,190 +97,203 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
 body {
-  line-height: 1;
+    line-height: 1;
 }
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
+    content: "";
+    content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-  scroll-behavior: smooth;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    scroll-behavior: smooth;
 }
 
 @keyframes headerLoad {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0;
-    letter-spacing: 1em;
-    top: calc(50vh - 10vmin);
-  }
-  50% {
-    opacity: 1;
-    letter-spacing: 0.1em;
-    top: calc(50vh - 10vmin);
-  }
-  100% {
-    top: 0;
-    letter-spacing: 0.1em;
-  }
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+        letter-spacing: 1em;
+        top: calc(50vh - 10vmin);
+    }
+    50% {
+        opacity: 1;
+        letter-spacing: 0.1em;
+        top: calc(50vh - 10vmin);
+    }
+    100% {
+        top: 0;
+        letter-spacing: 0.1em;
+    }
 }
 
 #header {
-  width: max-content;
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  text-align: center;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 700;
-  font-size: 10vmin;
-  margin: 5vh auto;
-  z-index: 999;
-  /*headerrLoad animation for loading text in; fill mode forwards*/
-  animation: headerLoad 3s ease-in-out 0s 1 normal forwards;
+    width: max-content;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 700;
+    font-size: 10vmin;
+    margin: 5vh auto;
+    z-index: 999;
+    /*headerrLoad animation for loading text in; fill mode forwards*/
+    animation: headerLoad 3s ease-in-out 0s 1 normal forwards;
 }
 
 @keyframes menuLoad {
-  0% {
-    opacity: 0;
-    transform: translateY(100vh);
-  }
-  50% {
-    opacity: 0;
-    transform: translateY(100vh);
-  }
-  99% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+    99% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #websitesMenu {
-  height: 100vh;
-  position: relative;
-  width: 100vw;
-  animation: menuLoad 3s ease-in-out 0s 1 normal forwards;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    animation: menuLoad 3s ease-in-out 0s 1 normal forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #websites {
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
 }
 
 #websites::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+    display: none; /* Safari and Chrome */
 }
 
 #websites {
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  padding-right: 0.5rem;
-  height: 100%;
-  overflow: scroll;
-  scroll-snap-type: y mandatory;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    padding-right: 0.5rem;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 }
 
 /*select website before*/
 #websites::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 15%,
-    rgba(255, 255, 255, 0) 50%,
-    rgba(255, 255, 255, 1) 85%
-  );
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 1) 15%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 1) 85%
+    );
 }
 
 /*select first child of #websites*/
 #websites > h2:first-child {
-  margin: 100vh;
-  scroll-snap-align: start;
+    margin: 100vh;
+    scroll-snap-align: start;
 }
 
 /*select last child of #websites*/
 #websites > h2:last-child {
-  margin: 100vh;
-  scroll-snap-align: end;
+    margin: 100vh;
+    scroll-snap-align: end;
 }
 
 #websites > h2 {
-  font-weight: 500;
-  font-size: 7.5vmin;
-  margin: 12.5vh 0 12.5vh auto;
-  text-align: end;
-  scroll-snap-align: center;
+    font-weight: 500;
+    font-size: 7.5vmin;
+    margin: 12.5vh 0 12.5vh auto;
+    text-align: end;
+    scroll-snap-align: center;
+}
+
+#websiteImages {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+#websiteImages > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 #hausEnter {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #hausText {
-  font-weight: 500;
-  font-size: 7.5vmin;
-  width: 50vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 0.5rem;
+    font-weight: 500;
+    font-size: 7.5vmin;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 0.5rem;
 }
 
 #enterButton {
-  position: absolute;
-  height: 7.5vmin;
-  width: 7.5vmin;
-  color: black;
-  right: 10vw;
-  cursor: pointer;
+    position: absolute;
+    height: 7.5vmin;
+    width: 7.5vmin;
+    color: black;
+    right: 10vw;
+    cursor: pointer;
 }
 
 @keyframes fadeOutToLeft {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(15vw);
-  }
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(15vw);
+    }
 }
 
 .fadeOutToLeft {
-  animation: fadeOutToLeft 0.5s ease-in-out 0s 1 normal forwards;
+    animation: fadeOutToLeft 0.5s ease-in-out 0s 1 normal forwards;
 }
