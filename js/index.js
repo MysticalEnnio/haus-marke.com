@@ -22,7 +22,7 @@ fetch('https://api.haus-marke.com/sites/get')
             img.alt = websiteOptions.name + ' Image';
             img.dataset.number = websiteNumber;
             //make opacity 0
-            img.style.opacity = websiteNumber == 1 ? 0.5 : 0;
+            img.style.opacity = websiteNumber == 1 ? 0 : 0;
             websiteImageContainer.appendChild(img);
             websiteNumber++;
         }
