@@ -1,4 +1,4 @@
-fetch('http://213.165.72.44/sites/get')
+fetch('https://api.haus-marke.com:5000/http://213.165.72.44/sites/get')
     .then((res) => res.json())
     .then((websites) => {
         const websitesContainer = document.getElementById('websites');
