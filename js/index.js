@@ -1,3 +1,4 @@
+console.log('V1.1.6');
 fetch('https://api.haus-marke.com/sites/get')
     .then((res) => res.json())
     .then((websites) => {
