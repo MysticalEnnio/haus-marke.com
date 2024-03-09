@@ -114,7 +114,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: "";
+    content: '';
     content: none;
 }
 table {
@@ -156,7 +156,7 @@ body {
     top: 0;
     width: 100vw;
     text-align: center;
-    font-family: "Courier New", Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
     font-size: 10vmin;
     margin: 5vh auto;
@@ -206,12 +206,13 @@ body {
     padding-right: 0.5rem;
     height: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
     scroll-snap-type: y mandatory;
 }
 
 /*select website before*/
 #websites::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
